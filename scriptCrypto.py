@@ -19,7 +19,6 @@ def window():
 
     label = Label(fenetre, text="Hello World")
     label.pack()
-
     
     bouton1=Button(fenetre, text="Fermer", width = 15, height = 10, command=fenetre.quit)
     bouton1.pack(side = "left")
@@ -27,7 +26,6 @@ def window():
     bouton2 =Button(fenetre, text="Ouvrir",  width = 15, height = 10, command=nomFichier)
     bouton2.pack(side = "right")    
     fenetre.mainloop()
-    
     
 # Affichage des résultats
 def window2(totalFind, key, texteClair):
@@ -37,24 +35,18 @@ def window2(totalFind, key, texteClair):
         
     label = Label(fenetre, text="Il y a " + str(totalFind) + " mots français")
     label.pack()
-
     
     label = Label(fenetre, text="Voici un extrait du texte déchiffré\n" + texteClair)
     label.pack()
-
     
     label = Label(fenetre, text="La clé est " + str(key))
     label.pack()
-    
     
     bouton=Button(fenetre, text="Fermer", command=fenetre.quit)
     bouton.pack()
     
     fenetre.mainloop()
 
-
-
-    
 #Fonction pour trouver la bonne clé
 def findXorKey(text, key_len, most_common_byte=32):
     key = bytearray([0] * key_len)
@@ -72,15 +64,10 @@ def decrypt(bytearr, key):
     for i in range(len(bytearr)):
         output.append(bytearr[i] ^ key[i % len(key)])
     return output
-        
 
-input_file    = None
-output_file   = None
 keylen        = None
 key           = None
 do_decrypt    = False
-
-  
     
 def  crypto(filename):   
     
@@ -127,6 +114,5 @@ def francais(textLower, source_text, key):
     key = key.decode("latin-1")
     
     window2(totalFind, key, texteClair)
-
             
 window()
